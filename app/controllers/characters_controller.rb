@@ -14,8 +14,11 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
-    @character.save
-    redirect_to character_path(@character)
+    if @character.save
+      redirect_to character_path(@character)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -28,7 +31,6 @@ class CharactersController < ApplicationController
 
   def destroy
     @character.destroy
-    # No need for app/views/restaurants/destroy.html.erb
     redirect_to characters_path, status: :see_other
   end
 
