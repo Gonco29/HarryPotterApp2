@@ -1,0 +1,13 @@
+<h2><%= @character.name %></h2>
+<p><%= @character.actor %></p>
+<p><%= @character.review %></p>
+<p><%= @character.image_url %></p>
+
+<%= link_to "Editar", edit_character_path(@character) %>
+
+<%= link_to "Borrar",
+  character_path(@character),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+
+<%= link_to "Volver a Personajes", characters_path(@character) %>
