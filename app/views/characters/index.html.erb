@@ -1,11 +1,12 @@
-
-<% @characters.each do |character| %>
-  <div class="card" style="width: 18rem;">
-    <img src="<%= character.image_url %>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text"><%= link_to character.name, character_path(character) %></p>
+<div class="index-cards">
+  <% @characters.each do |character| %>
+    <div class="card " style="width: 18rem;">
+      <img src="<%= character.image_url %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text"><%= link_to character.name, character_path(character) %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<%= link_to "CREAR UN NUEVO PERSONAJE", new_character_path(@character) %>
+  <%= link_to "CREAR UN NUEVO PERSONAJE", new_character_path(@character) %>
+</div>
